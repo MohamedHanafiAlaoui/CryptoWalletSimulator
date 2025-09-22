@@ -1,5 +1,8 @@
 package main.java.models.Enums;
 
-public class TransactionStatus {
-    
+public enum TransactionStatus {
+    PENDING,
+    CONFIRMED,
+    REJECTED
+
 }

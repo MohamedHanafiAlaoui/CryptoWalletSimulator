@@ -1,5 +1,7 @@
 package main.java.models.Enums;
 
-public class FeePriority {
-    
+public enum FeePriority {
+    ECONOMIC,
+    STANDARD,
+    FAST,
 }
