@@ -1,5 +1,6 @@
 package main.java.models;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import main.java.models.Enums.CryptoType;
@@ -9,10 +10,10 @@ public abstract class Wallet {
     private String id;
     private String address;
     private CryptoType cryptoType;
-    private double balance; 
+    private BigDecimal balance; 
     private LocalDateTime creatDate;
 
-    public Wallet(String id, String address, CryptoType cryptoType, double balance, LocalDateTime creatDate) {
+    public Wallet(String id, String address, CryptoType cryptoType, BigDecimal balance, LocalDateTime creatDate) {
         this.id = id;
         this.address = address;
         this.cryptoType = cryptoType;
@@ -31,10 +32,10 @@ public abstract class Wallet {
     public CryptoType getCryptoType() {
         return cryptoType;
     }
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
     public LocalDateTime getCreatDate() {
@@ -43,8 +44,8 @@ public abstract class Wallet {
 
 
 
-    public abstract String generateAssres();
-    public abstract boolean validateAddres(String address);
+    public abstract String generateAddress();
+    public abstract boolean validateAddress(String address);
 
 
     
