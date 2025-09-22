@@ -1,5 +1,7 @@
 package main.java.models.Enums;
 
-public class CryptoType {
-    
+public enum CryptoType {
+    BITCOIN,
+    ETHEREUM,
+    LITECOIN,
 }
