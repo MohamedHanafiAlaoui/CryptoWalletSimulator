@@ -60,6 +60,16 @@ abstract public class Transaction {
         this.status = status;
     }
 
-    
+    abstract public BigDecimal  calculateFees();
+
+    public int estimateConfirmationTime()
+    {
+        return 0;
+    }
+
+    public  void updateStatus(TransactionStatus status)
+    {
+        this.status = status ;
+    }
 
 }
