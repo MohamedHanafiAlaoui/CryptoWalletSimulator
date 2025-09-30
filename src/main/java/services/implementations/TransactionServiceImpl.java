@@ -1,6 +1,7 @@
 package main.java.services.implementations;
 
 import main.java.models.Transaction;
+import main.java.models.Enums.TransactionStatus;
 import main.java.repositories.TransactionRepository;
 import main.java.repositories.RepositoryException;
 import main.java.services.TransactionService;
@@ -21,7 +22,6 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void createTransaction(Transaction transaction) {
         mempoolService.addToMempool(transaction);
-
 
         try {
             transactionRepository.add(transaction);
@@ -45,4 +45,17 @@ public class TransactionServiceImpl implements TransactionService {
     public List<Transaction> getAllTransactions() {
         return transactionRepository.getAll();
     }
+
+    @Override
+    public void updateTransactionStatus(String id, TransactionStatus newStatus) {
+        Transaction tx = transactionRepository.getById(id);
+        if (tx != null) {
+            tx.setStatus(newStatus);
+            updateTransaction(tx);
+            System.out.println("✅ Status updated: " + id + " -> " + newStatus);
+        } else {
+            System.out.println("⚠️ Transaction not found: " + id);
+        }
+    }
+
 }

@@ -15,7 +15,7 @@ public class BitcoinWallet extends Wallet {
 
         super(id, address, cryptoType, balance, creatDate);
         this.version = version;
-        this.network = network;
+        this.network = network; 
     }
 
     public String getVersion() {
@@ -45,7 +45,7 @@ public class BitcoinWallet extends Wallet {
     }
 
 
-    
+
 
 
     
