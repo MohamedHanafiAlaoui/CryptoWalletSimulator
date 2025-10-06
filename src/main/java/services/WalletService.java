@@ -14,4 +14,6 @@ public interface WalletService {
 
     void sendTransaction(Wallet sender, Wallet receiver, BigDecimal amount, Transaction tx);
     void deleteWallet(String id);
+        void updateWallet(Wallet wallet);
+
 }

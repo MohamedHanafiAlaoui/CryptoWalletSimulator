@@ -59,4 +59,9 @@ public class WalletServiceImpl implements WalletService {
         walletRepository.delete(id);
     }
 
+    @Override
+    public void updateWallet(Wallet wallet) {
+        walletRepository.update(wallet);
+    }
+
 }

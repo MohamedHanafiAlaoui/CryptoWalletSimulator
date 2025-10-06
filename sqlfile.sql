@@ -11,9 +11,9 @@ CREATE TABLE wallets (
   crypto_type crypto_type NOT NULL,
   balance NUMERIC(30, 18) NOT NULL DEFAULT 0,
   created_at TIMESTAMP NOT NULL DEFAULT now(),
-  version VARCHAR(64),    -- bitcoin specific (nullable)
-  network VARCHAR(64),    -- bitcoin specific (nullable)
-  chain_id INTEGER        -- ethereum specific (nullable)
+  version VARCHAR(64),   
+  network VARCHAR(64),    
+  chain_id INTEGER        
 );
 
 -- transactions table
@@ -33,11 +33,7 @@ CREATE TABLE transactions (
   satoshi_per_byte VARCHAR(64)
 );
 
-CREATE TABLE mempool (
-  id SERIAL PRIMARY KEY,
-  transaction_id VARCHAR(50) NOT NULL REFERENCES transactions(id) ON DELETE CASCADE,
-  added_at TIMESTAMP NOT NULL DEFAULT now()
-);
+
 
 CREATE INDEX idx_transactions_source ON transactions(source_address);
 CREATE INDEX idx_transactions_dest ON transactions(destination_address);

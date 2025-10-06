@@ -18,7 +18,7 @@ public class MempoolController {
     public void listMempoolTransactions() {
         List<Transaction> transactions = mempoolService.getAllTransactions();
         if (transactions.isEmpty()) {
-            System.out.println("⚠️ Mempool فارغ.");
+            System.out.println(" Mempool .");
         } else {
             for (Transaction tx : transactions) {
                 System.out.println("➡ ID: " + tx.getId() +
@@ -37,7 +37,7 @@ public class MempoolController {
 
         Transaction tx = mempoolService.getTransactionById(id);
         if (tx != null) {
-            System.out.println("✅ Transaction trouvée dans Mempool: " +
+            System.out.println(" Transaction trouvée dans Mempool: " +
                     tx.getCryptoType() +
                     " | From: " + tx.getSourceAddress() +
                     " → To: " + tx.getDestinationAddress() +
@@ -45,7 +45,7 @@ public class MempoolController {
                     " | Fees: " + tx.getFees() +
                     " | Status: " + tx.getStatus());
         } else {
-            System.out.println("❌ Transaction introuvable dans Mempool.");
+            System.out.println(" Transaction introuvable dans Mempool.");
         }
     }
 
@@ -54,6 +54,6 @@ public class MempoolController {
         String id = scanner.nextLine();
 
         mempoolService.removeFromMempool(id);
-        System.out.println("🗑 Transaction supprimée du Mempool.");
+        System.out.println(" Transaction supprimée du Mempool.");
     }
 }

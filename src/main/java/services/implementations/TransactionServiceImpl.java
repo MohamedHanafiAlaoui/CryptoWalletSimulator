@@ -22,12 +22,14 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void createTransaction(Transaction transaction) {
         mempoolService.addToMempool(transaction);
+    }
 
+    @Override
+    public void saveConfirmedTransaction(Transaction transaction) {
         try {
             transactionRepository.add(transaction);
-            mempoolService.removeFromMempool(transaction.getId());
         } catch (RepositoryException e) {
-            System.err.println("❌ Failed to persist transaction: " + e.getMessage());
+            System.err.println(" Failed to persist confirmed transaction: " + e.getMessage());
         }
     }
 
@@ -52,9 +54,9 @@ public class TransactionServiceImpl implements TransactionService {
         if (tx != null) {
             tx.setStatus(newStatus);
             updateTransaction(tx);
-            System.out.println("✅ Status updated: " + id + " -> " + newStatus);
+            System.out.println(" Status updated: " + id + " -> " + newStatus);
         } else {
-            System.out.println("⚠️ Transaction not found: " + id);
+            System.out.println(" Transaction not found: " + id);
         }
     }
 
